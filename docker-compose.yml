@@ -10,10 +10,12 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - html-go-data:/usr/src/app/data
-    environment:
+      - ./html-go-data:/usr/src/app/data # 数据库和会话数据卷
+    env_file: # 添加这行
+      - .env  # 指定读取 .env 文件
+    environment: # 保留这些，它们可能会覆盖 .env 中的同名变量（如果需要）
       - NODE_ENV=production
-      - PORT=8888
+      - PORT=8888 # 容器内端口，与 ports 映射的第二个值一致
     networks:
       - html-go-network
 
