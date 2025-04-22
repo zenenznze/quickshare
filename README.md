@@ -23,6 +23,20 @@ npm install
 cp .env.example .env
 ```
 
+   重要环境变量说明：
+   - `NODE_ENV`: 运行环境(development/production/test)
+   - `PORT`: 应用服务端口(默认5678)
+   - `LOG_LEVEL`: 日志级别(dev/prod)
+   - `AUTH_ENABLED`: 是否启用认证(true/false)
+   - `AUTH_PASSWORD`: 管理员密码(生产环境必须修改)
+   
+   生产环境建议配置：
+   ```env
+   NODE_ENV=production
+   LOG_LEVEL=prod
+   AUTH_PASSWORD=your_strong_password_here
+   ```
+
 3. 启动开发服务器：
 ```bash
 npm run dev
